@@ -14,12 +14,14 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(originPatterns="http://localhost:3000")
 @RequestMapping("/user")
 public class MainController {
 
+
     private UserService userService;
     private UserRepository userRepository;
+
 
     @Autowired
     public MainController(UserService userService, UserRepository userRepository) {
@@ -74,6 +76,7 @@ public class MainController {
         return ResponseEntity.ok(response);
     }
 
+
     //전국 순위에 퍼센트도 알려줌
     @GetMapping("/result")
     public ResponseEntity<RankingResultDTO> getResult(@RequestParam("score") int score) {
@@ -94,4 +97,24 @@ public class MainController {
     }
 
 
+    //저장과 동시에 등수 퍼센트 모두 알려줌
+    //전국 순위에 퍼센트도 알려줌
+    @PostMapping("/result")
+    public ResponseEntity<RankingResultDTO> saveAndResult(
+            @RequestBody UserDTO userDTO
+    ) {
+        UserEntity newUser = userDTO.toEntity();
+        userRepository.save(newUser);
+        List<UserEntity> users = userService.getUsersByScoreDescending();
+        int rank = userService.calculateRank(users, newUser.getScore());
+        double percentile = userService.calculatePercentile(users, rank);
+        String rankResponse;
+        if (rank > 0) {
+            rankResponse = "당신의 전국 순위는 " + rank + "등" + "입니다 !";
+        } else {
+            rankResponse = "등수를 찾을 수 없어요 ...";
+        }
+        RankingResultDTO resultDTO = new RankingResultDTO(rankResponse, percentile);
+        return ResponseEntity.ok(resultDTO);
+    }
 }
