@@ -35,7 +35,7 @@ public class MainController {
 
 
     // 그냥 설문 저장 할거면 이거
-    @GetMapping("/insert")
+    @PostMapping("/insert")
     public ResponseEntity<?> insert(
             @RequestBody UserDTO userDTO
     ) {
