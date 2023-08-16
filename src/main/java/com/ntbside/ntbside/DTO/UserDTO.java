@@ -3,11 +3,13 @@ package com.ntbside.ntbside.DTO;
 import com.ntbside.ntbside.entity.UserEntity;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
 
 @Data
+@NoArgsConstructor
 public class UserDTO {
 
     private Long id;
@@ -15,7 +17,7 @@ public class UserDTO {
     @NotBlank(message = "닉네임은 필수 입력값입니다.")
     private String username;
 
-    private int score;
+    private int score = 0;
 
     public UserEntity toEntity(){
         UserEntity build = UserEntity.builder()
