@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RankingResultDTO {
 
-    private String rankResponse;
+    private int rankResponse;
 
     private double percentile;
 }
