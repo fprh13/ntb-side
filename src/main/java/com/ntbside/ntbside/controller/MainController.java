@@ -7,6 +7,7 @@ import com.ntbside.ntbside.entity.UserEntity;
 import com.ntbside.ntbside.repository.UserRepository;
 import com.ntbside.ntbside.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,12 +32,6 @@ public class MainController {
     }
 
 
-    @GetMapping("")
-    public ResponseEntity<?> hello() {
-        return ResponseEntity.ok("현상이 안녕 ?");
-    }
-
-
     // 그냥 설문 저장 할거면 이거
     @PostMapping("/insert")
     public ResponseEntity<?> insert(
@@ -47,7 +42,7 @@ public class MainController {
             userRepository.save(newUser);
             return ResponseEntity.ok("insert score");
         } else {
-            return ResponseEntity.ok("no data");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
@@ -70,43 +65,6 @@ public class MainController {
     }
 
 
-        // 전국 순위를 나타내줌
-        @GetMapping("/rank")
-        public ResponseEntity<String> getRank ( @RequestParam("score") int score){
-            List<UserEntity> users = userService.getUsersByScoreDescending();
-
-            int rank = userService.calculateRank(users, score);
-            String response;
-            if (rank > 0) {
-                response = "당신의 전국 순위는 " + rank + "등" + "입니다 !";
-            } else {
-                response = "등수를 찾을 수 없어요 ...";
-            }
-
-            return ResponseEntity.ok(response);
-        }
-
-
-
-    //전국 순위에 퍼센트도 알려줌
-    @GetMapping("/result")
-    public ResponseEntity<RankingResultDTO> getResult(@RequestParam("score") int score) {
-        List<UserEntity> users = userService.getUsersByScoreDescending();
-
-        int rank = userService.calculateRank(users, score);
-        double percentile = userService.calculatePercentile(users, rank);
-
-        String rankResponse;
-        if (rank > 0) {
-            rankResponse = "당신의 전국 순위는 " + rank + "등" + "입니다 !";
-        } else {
-            rankResponse = "등수를 찾을 수 없어요 ...";
-        }
-
-        RankingResultDTO resultDTO = new RankingResultDTO(rankResponse, percentile);
-        return ResponseEntity.ok(resultDTO);
-    }
-
 
     //저장과 동시에 등수 퍼센트 모두 알려줌
     //전국 순위에 퍼센트도 알려줌
@@ -119,13 +77,11 @@ public class MainController {
         List<UserEntity> users = userService.getUsersByScoreDescending();
         int rank = userService.calculateRank(users, newUser.getScore());
         double percentile = userService.calculatePercentile(users, rank);
-        String rankResponse;
         if (rank > 0) {
-            rankResponse = "당신의 전국 순위는 " + rank + "등" + "입니다 !";
+            RankingResultDTO resultDTO = new RankingResultDTO(rank, percentile);
+            return ResponseEntity.ok(resultDTO);
         } else {
-            rankResponse = "등수를 찾을 수 없어요 ...";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-        RankingResultDTO resultDTO = new RankingResultDTO(rankResponse, percentile);
-        return ResponseEntity.ok(resultDTO);
     }
 }
