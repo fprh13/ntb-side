@@ -14,6 +14,8 @@ public class UserDTO {
 
     private Long id;
 
+    private int rank = 0;
+
     @NotBlank(message = "닉네임은 필수 입력값입니다.")
     private String username;
 
@@ -29,7 +31,9 @@ public class UserDTO {
 
 
     @Builder
-    public UserDTO(String username, int score) {
+    public UserDTO(Long id, String username, int score, int rank) {
+        this.id = id;
+        this.rank = rank;
         this.username = username;
         this.score = score;
     }

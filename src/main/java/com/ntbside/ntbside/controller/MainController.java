@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -53,28 +54,38 @@ public class MainController {
 
     // 사람들 내림 차순 리스트 이거 등수는 필요없겠지만
     @GetMapping("/list")
-    public ResponseEntity<List<UserEntity>> test(
+    public ResponseEntity<List<UserDTO>> test(
     ) {
         List<UserEntity> ranking = userService.getUsersByScoreDescending();
-        return ResponseEntity.ok(ranking);
+        List<UserDTO> rankedUsers = new ArrayList<>();
+        int rank = 1;
+        for (int i = 0; i < ranking.size(); i++) {
+            UserEntity user = ranking.get(i);
+            if (i > 0 && user.getScore() < ranking.get(i - 1).getScore()) {
+                rank = i + 1;
+            }
+            rankedUsers.add(new UserDTO(user.getId(), user.getUsername(), user.getScore(), rank));
+        }
+        return ResponseEntity.ok(rankedUsers);
     }
 
 
-    // 전국 순위를 나타내줌
-    @GetMapping("/rank")
-    public ResponseEntity<String> getRank(@RequestParam("score") int score) {
-        List<UserEntity> users = userService.getUsersByScoreDescending();
+        // 전국 순위를 나타내줌
+        @GetMapping("/rank")
+        public ResponseEntity<String> getRank ( @RequestParam("score") int score){
+            List<UserEntity> users = userService.getUsersByScoreDescending();
 
-        int rank = userService.calculateRank(users, score);
-        String response;
-        if (rank > 0) {
-            response = "당신의 전국 순위는 " + rank +"등" + "입니다 !";
-        } else {
-            response = "등수를 찾을 수 없어요 ...";
+            int rank = userService.calculateRank(users, score);
+            String response;
+            if (rank > 0) {
+                response = "당신의 전국 순위는 " + rank + "등" + "입니다 !";
+            } else {
+                response = "등수를 찾을 수 없어요 ...";
+            }
+
+            return ResponseEntity.ok(response);
         }
 
-        return ResponseEntity.ok(response);
-    }
 
 
     //전국 순위에 퍼센트도 알려줌
