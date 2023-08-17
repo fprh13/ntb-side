@@ -1,5 +1,5 @@
 server:
-  address:
+  address: 49.50.166.187
   port: 80
 
 spring:
@@ -8,7 +8,7 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.101.219.140:3306/ntbside
+    url: jdbc:mysql://49.50.166.187:3306/ntbside
     username: ntbside
     password: 1748
 
