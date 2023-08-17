@@ -8,7 +8,7 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://49.50.166.187:3306/ntbside
+    url: jdbc:mysql://49.50.166.187:3306/mysql
     username: ntbside
     password: 1748
 
