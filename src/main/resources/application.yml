@@ -1,6 +1,6 @@
 server:
-  address: localhost
-  port: 8080
+  address:
+  port: 80
 
 spring:
   mvc:
@@ -8,9 +8,9 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ntbside
-    username: root
-    password: my-secret-pw
+    url: jdbc:mysql://101.101.219.140:3306/ntbside
+    username: ntbside
+    password: 1748
 
   jpa:
     database: mysql
@@ -21,27 +21,3 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-
-#server:
-#  address: 공인 ip 주소
-#  port: 80 (http 포트로 변경)
-#
-#spring:
-#  mvc:
-#    pathmatch:
-#      matching-strategy: ant_path_matcher
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://(공인 IP 주소):3306/ntbside
-#    username: root
-#    password: my-secret-pw
-#
-#  jpa:
-#    database: mysql
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: update (create 선택)
-#    properties:
-#      hibernate:
-#        show_sql: true
-#        format_sql: true
