@@ -1,5 +1,4 @@
 server:
-  address: 49.50.166.187
   port: 80
 
 spring:
