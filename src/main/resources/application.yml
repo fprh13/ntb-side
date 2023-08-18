@@ -22,3 +22,9 @@ spring:
         show_sql: true
         format_sql: true
     open-in-view: false
+
+    cors:
+      allowed-origins: "*" # 모든 오리진 허용
+      allowed-methods: "*" # 모든 HTTP 메서드 허용
+      allowed-headers: "*" # 모든 헤더 허용
+      allow-credentials: true # credentials 허용
