@@ -17,7 +17,6 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user")
 public class MainController {
 
 
