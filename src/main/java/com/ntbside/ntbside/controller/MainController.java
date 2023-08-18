@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(originPatterns="http://localhost:3000")
+@CrossOrigin("*")
 @RequestMapping("/user")
 public class MainController {
 
