@@ -11,6 +11,10 @@ spring:
     url: jdbc:mysql://118.67.128.212:3306/ntbside?useUnicode=true
     username: ntbside
     password: 1748
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
 
   jpa:
     database: mysql
