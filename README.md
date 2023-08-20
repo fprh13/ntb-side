@@ -1,29 +1,73 @@
-# Getting Started
+# Crud 게시판 만들기
 
-### Reference Documentation
-For further reference, please consider the following sections:
+`OX퀴즈 만들기` 웹 애플리케이션 프로젝트 입니다. <br/><br/>
+`2023.08.16 ~ 2022.08.18` 동안 `Spring Boot`를 사용해 구현했습니다.<br>
+프론트엔드와의 협업과 클라우드배포를 배우는 것이 목적 입니다.<br>
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.14/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.14/gradle-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.14/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.14/reference/htmlsingle/index.html#web)
-* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.7.14/reference/htmlsingle/index.html#web.servlet.spring-mvc.template-engines)
-* [Validation](https://docs.spring.io/spring-boot/docs/2.7.14/reference/htmlsingle/index.html#io.validation)
+# 프로젝트 구조
 
-### Guides
-The following guides illustrate how to use some features concretely:
+```
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── settings.gradle
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── ntbside
+    │   │           └── ntbside
+    │   │               ├── DTO
+    │   │               │   ├── RankingResultDTO.java
+    │   │               │   └── UserDTO.java
+    │   │               ├── NtbsideApplication.java
+    │   │               ├── controller
+    │   │               │   └── MainController.java
+    │   │               ├── entity
+    │   │               │   └── UserEntity.java
+    │   │               ├── repository
+    │   │               │   └── UserRepository.java
+    │   │               └── service
+    │   │                   └── UserService.java
+    │   └── resources
+    │       ├── application.properties
+    │       ├── application.yml
+    │       ├── static
+    │       └── templates
+    └── test
+        └── java
+            └── com
+                └── ntbside
+                    └── ntbside
+                        └── NtbsideApplicationTests.java
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-* [Validation](https://spring.io/guides/gs/validating-form-input/)
 
-### Additional Links
-These additional references should also help you:
+```
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+# 📚 목차
 
+- [사용 기술](#-사용-기술-및-환경)
+- [구현 기능](#-구현-기능)
+
+# ⚒️ 사용 기술 및 환경
+
+### ⚙️ Backend
+
+| 기술 & 환경   | 버전    |
+| ------------- | ------- |
+| Spring Boot   | 2.7.11  |
+| Gradle        | 8.1.1   |
+| MySQL         | 8.0.33  |
+| Java          | 11.0.18 |
+| IntelliJ IDEA | 17.0.6  |
+| Swagger       | 3.0.0   |
+
+# ✨ 구현 기능
+
+- SCORE
+  - 점수 저장
+  - 등수 반환
+  - 등수를 퍼센트로 반환
