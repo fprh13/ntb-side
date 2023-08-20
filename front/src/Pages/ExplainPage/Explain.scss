@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1{
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);;
+	background-clip: text;
+    color: transparent;
+}
+
+.service-introduce-title { 
+    font-family: 'SBAggroB';
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .introduce-box {
+    display: grid;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 2fr; 
+    height: 2fr; 
+  }
+
+  .grid-container {
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    border-radius: '10px';
+  
+
+    .grid-item:nth-child(1) {
+        background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    }
+
+    .grid-item:nth-child(2) {
+        background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    }
+    .grid-item:nth-child(3) {
+        background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    }
+    .grid-item:nth-child(4) {
+        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    }
+   
+    .grid-item {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        
+        // border-right-width: 5px;
+        
+        
+
+        .grid-item-title {
+            font-family: 'SBAggroB';
+            color: rgb(59, 63, 78);
+            text-align: center;
+            margin-bottom: 10px;
+          }
+
+        .logo-img{
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            height: 150px;
+        }
+        
+        h3 {
+            font-family: 'Pretendard-Regular';
+            margin-bottom: 10px;
+        }
+
+        p{
+            font-family: 'Pretendard-Regular';
+            display: flex;
+            text-align: center;
+            
+            margin-bottom: 10px;
+        }
+      }
+  }
+  
+  
+  

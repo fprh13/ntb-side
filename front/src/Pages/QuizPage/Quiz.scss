@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'RIDIBatang';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.quiz-card-header {
+    
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    font-family: "RIDIBatang";
+    height: 100px;
+    background-color: rgb(231, 231, 232);
+    margin-bottom: 10px;
+
+    
+    .question {
+      padding: 1rem 1rem;
+      font-size: 20px;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+}
+
+.quiz-card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    height: 80%;
+    
+  
+
+  
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 100px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+      border: transparent;
+      &:hover {
+        background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+      }
+    }
+
+
+
+    .o-button{
+        color: blue;
+        
+    }
+    .x-button{
+        font-size: 100px;
+        color: red;
+        
+    }
+  }
