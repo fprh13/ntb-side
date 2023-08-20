@@ -7,13 +7,6 @@
 # 프로젝트 구조
 
 ```
-├── gradle
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-├── gradlew
-├── gradlew.bat
-├── settings.gradle
 └── src
     ├── main
     │   ├── java
@@ -38,13 +31,6 @@
     │       ├── static
     │       └── templates
     └── test
-        └── java
-            └── com
-                └── ntbside
-                    └── ntbside
-                        └── NtbsideApplicationTests.java
-
-
 ```
 
 # 📚 목차
