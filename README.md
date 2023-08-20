@@ -49,7 +49,6 @@
 | MySQL         | 8.0.33  |
 | Java          | 11.0.18 |
 | IntelliJ IDEA | 17.0.6  |
-| Swagger       | 3.0.0   |
 
 # ✨ 구현 기능
 
