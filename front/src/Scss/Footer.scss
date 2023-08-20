@@ -1,0 +1,26 @@
+.footer-wrapper {
+    padding-bottom: 10px;
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 241, 241);
+    border-top: 1px solid transparent; /* 투명한 선으로 초기 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 흐림 효과를 추가함 */
+    margin-top: 300px;
+    font-family: 'Pretendard-Regular';
+}
+
+.footer-logo-image {
+    display: flex;
+    justify-self: flex-end;
+    margin-right: 30px;
+    width: 150px;
+    height: 100px;
+    background: none;
+    background-size: cover;
+}
